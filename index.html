@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en"><html class="skrollr skrollr-desktop">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ya se programar</title>
+    <link rel="stylesheet" href="swiper-bundle.min.css">  <!-- no tocar -->
+    </head>
+
+</head>
+<body>  <!-- contenido -->
+    <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+
+<main class="main">
+<section>
+    <header class="header">
+    <div class="inner">
+    <div id="menuContainer">    <!-- boton de usuario -->
+    <button id="menuBtn"><svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <rect width="18" height="1.5" fill=red ry="0.75" x="3" y="6.25" />
+    <rect width="18" height="1.5" fill=red ry="0.75" x="3" y="11.25" />
+    <rect width="18" height="1.5" fill=red ry="0.75" x="3" y="16.25" /></svg></button>
+    <div class="dropdown-content show" id="menuContent">
+    <h2 id="bienvenida"></h2><button id="borrarUsuario">Cerrar sesión</button>
+    <!-- agregar mas botones -->
+    </div>
+    </div>
+
+    <button class="err-btn" onclick="errorMsg()">
+    <svg viewBox="0 0 512 512" width="10" title="redo-alt">
+    <path d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z" />
+    </svg> Creditos</button>
+
+    <div class="err-msg-bg"><div class="err-msg">
+    <button class="close" onclick="closeErr()">
+    <svg viewBox="0 0 512 512" width="20" title="window-close">
+    <path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-83.6 290.5c4.8 4.8 4.8 12.6 0 17.4l-40.5 40.5c-4.8 4.8-12.6 4.8-17.4 0L256 313.3l-66.5 67.1c-4.8 4.8-12.6 4.8-17.4 0l-40.5-40.5c-4.8-4.8-4.8-12.6 0-17.4l67.1-66.5-67.1-66.5c-4.8-4.8-4.8-12.6 0-17.4l40.5-40.5c4.8-4.8 12.6-4.8 17.4 0l66.5 67.1 66.5-67.1c4.8-4.8 12.6-4.8 17.4 0l40.5 40.5c4.8 4.8 4.8 12.6 0 17.4L313.3 256l67.1 66.5z" />
+    </svg></button>
+
+    <h3>Colaboradores</h3>
+    <p>Edisson <span>(encargado del diseño, extruturacion, animador css y la logica de programacion).</span></p>
+    <p>Abram <span>(encargado de la supervision).</span></p>
+    <p>wander <span>(Experto en Html).</span></p>
+    <p>@JonWilson <span>(creador original de la animacion del menu).</span></p>
+    <p>Louis Coyle <span>(creador de los video de fondo y su javascript).</span></p>
+    <p>Louis Coyle <span>(creador de las particulas en la parte del formurario)</span></p>
+    <p>@jh3y <span>(creador original de la animacion del boton menu).</span></p>
+    <p>ReallyBadDeveloper <span>(creador del boton de "creditos")</span></p>
+    <a href="https://github.com/Colega-20" class="button modal-trigger" data-modal="contact">My Github</a>
+    </div></div>
+
+    <nav class="links"><!-- referencias -->
+    <a href="mailto:laskur92@gmail.com">llaskur92@gmail.com</a>
+    <a href="https://dribbble.com/louiscoyle" target="_blank">Youtube</a>
+    <a href="https://twitter.com/louis_coyle" target="_blank">twitter</a>
+    <a href="https://www.instagram.com/dropside_" target="_blank">instagram</a>
+    </nav></div></header>
+</section>
+
+<section>
+      <div class="intro"> <!-- contenido introductorio-->
+        <div class="copy">
+            <div class="copy-inner">
+                <h1><span>Hi</span>, Soy progamador jr</h1>
+                <p>Este es mi nuevo proyecto en coraboracion, &amp; espero le sea de su agrado.<span>  2024</span></p>
+                <a href="https://github.com/Colega-20" class="button modal-trigger" data-modal="contact">My Github</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="content new">
+        <h3>Publicaciones</h3>
+        <div thumbsslider="" class="swiper galleryThumbs swiper-initialized swiper-horizontal swiper-free-mode swiper-watch-progress swiper-thumbs">
+            <div class="swiper-wrapper" id="swiper-wrapper-645caa436f89c0d1" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                
+                <div class="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" data-modal="gallery" role="group" aria-label="1 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://test-de-homosexualidad.netlify.app/"><img src="img/test de homosexualidad.png"><div class="tile-copy">
+                            <h4>The Arrival</h4></a><p>3D</p></div></div></div><!-- -->
+
+                <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-next" data-modal="gallery" role="group" aria-label="2 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://corazon-shader.netlify.app/"><img src="img/Corazon RTX.jpg">
+                        <div class="tile-copy">
+                            <h4>Jetplane</h4></a>
+                            <p>3D, web3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible" data-modal="gallery" role="group" aria-label="3 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://corazon-simple-01.netlify.app/"><img src="img/corazon simple.png">
+                        <div class="tile-copy">
+                            <h4>The Cave</h4></a>
+                            <p>3D, NFT</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="4 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://2-nubes.netlify.app/"><img src="img/una nube.png">
+                        <div class="tile-copy">
+                            <h4>"Guiding Star" Hawke's Bay Christmas</h4></a>
+                            <p>3D</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="5 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/desertsands.jpg">
+                        <div class="tile-copy">
+                            <h4>Desert Sands</h4></a>
+                            <p>3D - Dynamic Wallpaper</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="6 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/mando.jpg">
+                        <div class="tile-copy">
+                            <h4>Dune Vs Mando</h4></a>
+                            <p>3D</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="7 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/summeroflove.png">
+                        <div class="tile-copy">
+                            <h4>Summer of Love</h4></a>
+                            <p>Vector, Illustration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="8 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/webfox.jpg">
+                        <div class="tile-copy">
+                            <h4>Webfox</h4></a>
+                            <p>3D, Web</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="9 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/hiddenvalleyhouse.jpg">
+                        <div class="tile-copy">
+                            <h4>Hidden Valley House</h4></a>
+                            <p>NFT, 3D, Web</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="10 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/eternity.jpg">
+                        <div class="tile-copy">
+                            <h4>Eternity</h4></a>
+                            <p>NFT, 3D</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="11 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/thenomad.jpg">
+                        <div class="tile-copy">
+                            <h4>The Nomad</h4></a>
+                            <p>NFT, Vector, After Effects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="12 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/darkmagician.jpg">
+                        <div class="tile-copy">
+                            <h4>Dark Magician</h4></a>
+                            <p>3D</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="13 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"> <img src="img/slumber.jpg">
+                        <div class="tile-copy">
+                            <h4>The Cave (Slumber Interactive)</h4></a>
+                            <p>Vector, Illustration, Web</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="14 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/thevalley.jpg">
+                        <div class="tile-copy">
+                            <h4>The Valley</h4></a>
+                            <p>Vector, Illustration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-modal="gallery" role="group" aria-label="15 / 15" style="width: 391px; margin-right: 20px;">
+                    <div class="tile">
+                        <a href="https://github.com/Colega-20"><img src="img/tropicalsunrise.jpg">
+                        <div class="tile-copy">
+                            <h4>Tropical Sunrise</h4></a>
+                            <p>Vector, Illustration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-scrollbar swiper-scrollbar-horizontal"><div class="swiper-scrollbar-drag" style="transform: translate3d(0px, 0px, 0px); width: 234.704px;"></div></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </section>
+
+<section class="content columns">
+    <div class="grid col-2" id="product-design">
+        <div class="col copy rellax" data-rellax-percentage="0.5" style="transform: translate3d(0px, 13px, 0px);">
+            <div class="copy-inner">
+                <h1 id="design">Ojectivo del proyecto</h1>
+                <p>User friendly software and application design. I help with ideation, prototyping, user interface and front end development.</p>
+                <p>If you have an idea, I can help to flesh it out and create a prototype for investment or testing. I support backend development teams by providing style guides, front end development assistance, clickable prototypes and more.</p>
+            </div>
+        </div>
+        <div class="col media">
+            <img src="img/product_design.png" alt="Product design">
+        </div>
+    </div>
+</section>
+
+    <section>
+        <footer class="footer">
+            <div class="footer-cta center">
+                <span>Autores...</span>
+                <p>wilson, Edisson.</p>
+                <a href="https://github.com/Colega-20" class="button modal-trigger" data-modal="contact">My Github</a>
+            </div>
+        </footer>
+    </section>
+</main>
+
+    <!-- video del fondo -->
+    <div class="video_wrap">
+    <div id="video-viewport" style="width: 835px; height: 769px;">
+    <video preload="" loop="" autobuffer="" autoplay="" muted="" width="1920" height="1080" style="width: 1367.11px; height: 769px;">
+    <source src="fondo/working.mp4" type="video/mp4">
+    </video>
+    </div>
+    </div>
+    
+<style>
+/* Estilos General/Global */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    background: #000;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+body {
+    display: grid;
+}
+
+.center {
+    text-align: center;
+}
+
+hr {
+    width: 70px;
+    margin: 3.3em 0;
+    border-bottom: 0px;
+    border-top: 2px solid #7e7e7e;
+    border-right: 0px;
+    border-left: 0;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+/* Theme select */
+.theme-select {
+    display: none;
+}
+
+/* New */
+.new {
+    max-width: 1900px;
+}
+
+.new h3 {
+    margin-bottom: 1.4em;
+}
+
+.new .swiper,
+.new .swiper-wrapper {
+    overflow: visible;
+}
+
+.new .swiper-slide {
+    height: auto;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+}
+
+.new .swiper-slide .tile {
+    padding: 0;
+    position: relative;
+    background: #2c6b9459;
+    backdrop-filter: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    min-height: 100%;
+}
+
+.new .swiper-slide .tile::before {
+    content: ' ';
+    display: flex;
+    position: absolute;
+    background: linear-gradient(0deg, #0b121c 0%, transparent 60%);
+    top: 0;
+    left: -2px;
+    right: 0;
+    bottom: 0;
+    width: 110%;
+    user-select: none;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.new .swiper-slide .tile-copy {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 0px 28px 17px;
+}
+
+.new .tile-copy h4,
+.galleryTop h4 {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0 0 4px 0;
+}
+
+.new .tile-copy h4 {
+    cursor: pointer;
+}
+
+.new .tile-copy h4:hover {
+    text-decoration: underline;
+}
+
+.new .tile-copy p,
+.galleryTop p {
+    font-size: 13px;
+    margin: 0;
+    color: #ffffff7a;
+}
+
+.new .swiper-slide img {
+    max-width: 100%;
+    transition: 2s ease-in-out all;
+    transform: scale(1);
+    min-width: 100%;
+}
+
+.new .tile:hover img {
+    transform: scale(1.2);
+}
+
+.new .swiper-slide .card-copy {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 30px 30px 0px;
+}
+
+.new .swiper-scrollbar {
+    bottom: -30px !important;
+    background: rgb(255 255 255 / 5%);
+}
+
+.new .swiper-scrollbar-drag {
+    background: rgb(255 255 255 / 20%);
+}
+
+/* Content */
+.content {
+    margin: auto;
+    padding: 0px 70px 0px;
+    position: relative;
+}
+
+.content.center {
+    text-align: center;
+    max-width: 1000px;
+}
+
+.content.columns {
+    max-width: 1900px;
+}
+
+.content.columns .grid {
+    align-items: center;
+    margin-bottom: 26vh;
+    padding: 110px 0;
+    font-size: 1.68em;
+}
+
+.content.columns .grid:last-child {
+    margin-bottom: 0px;
+}
+
+.content.columns .grid:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.content.columns .col:first-child {
+    padding-right: 0;
+}
+
+.content.columns .col:last-child {
+    padding-left: 2.5%;
+    padding: 30px 0 0;
+}
+
+.content.columns .grid:nth-child(even) .col:first-child {
+    padding-left: 2.5%;
+    padding-right: 0;
+}
+
+.content.columns .grid:nth-child(even) .col:last-child {
+    padding-right: 2.5%;
+    padding-left: 0;
+    display: flex;
+}
+
+.content.columns .grid:nth-child(even) .col:last-child img {
+    margin-left: auto;
+}
+
+.content.columns .grid:nth-child(odd) .col:first-child {
+    display: flex;
+    justify-content: end;
+}
+
+/*.content.columns .copy-inner {
+    max-width: 615px;
+}
+
+.content.columns h2 + p {
+    color: white;
+    line-height: 0em;
+}*/
+
+.content.columns .copy ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.content.columns .copy p + ul {
+    margin-top: 3em;
+}
+
+.content.columns .copy li {
+    font-size: 18px;
+    list-style: none;
+    width: 48%;
+    border-bottom: 1px solid rgb(255 255 255 / 30%);
+    padding: 18px 0px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Footer */
+.footer-cta {
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    padding: 26px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sub-footer {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgb(10 8 14 / 12%);
+}
+
+.sub-footer .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1900px;
+    margin: auto;
+    padding: 30px 130px;
+}
+
+#design{
+    color: #cbb824;
+    font-size: 2em;
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+    width: 6px;
+    background-color: #000000;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #252525;
+}
+
+a.button,
+.button:before {
+    content: '-';
+    display: inline-flex;
+    margin-right: 9px;
+}
+
+a.button, .button {
+    padding: 0px 0px 20px;
+    display: inline-flex;
+    /* margin-top: 1.3em; */
+    /* font-weight: 400; */
+    background: transparent;
+    color: white;
+    outline: none;
+    /* font-size: 1em; */
+    border: none;
+    /* position: relative; */
+    /* font-family: 'Neue Machina', sans-serif; */
+}
+
+/* Header */
+.header .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 14px 36px;
+}
+
+/* Referencias */
+nav.links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav.links a:nth-child(2),
+nav.links a:nth-child(3),
+nav.links a:nth-child(4) {
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+nav.links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+nav.links a {
+    font-size: 14px;
+    transition: 0.2s ease all;
+    display: flex;
+    padding: 8px;
+    margin-left: 30px;
+}
+
+a {
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+    transition: 0.2s ease all;
+}
+
+/* Botón de sesión */
+#menuContainer {
+    position: relative;
+    display: inline-flex;
+    left: 4%;
+    place-items: center;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 16px;
+}
+
+/* Estilo para el botón del menú */
+#menuBtn {
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+/* Estilo para el menú desplegable */
+.dropdown-content {
+    display: block;
+    position: fixed;
+    content: '';
+    top: 76px;
+    background: rgba(197, 197, 197, 0.2);
+    min-width: 160px;
+    border-radius: 10%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+    padding: 10px 10px;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    animation: fadeInRight 2s ease forwards;
+    opacity: 0;
+}
+
+/* Estilo para hacer visible el menú desplegable */
+.show {
+    display: none;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        left: 100%;
+    }
+    100% {
+        opacity: 1;
+        left: 6%;
+    }
+}
+
+/* Typography */
+h1 {
+    color: #7e7e7e;
+    font-size: 3em;
+
+}
+
+h2 {
+    color: #cbb824;
+    margin: 0 0 .6em 0;
+    font-size: 1.4em;
+    font-weight: 400;
+
+}
+
+h2 .sup-heading {
+    display: flex;
+    font-size: 0.38em;
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+h3 {
+    color: #a5a5a5;
+    margin: 20px 0 20px;
+    font-size: 2.2em;
+}
+
+h4{
+    color: #fff;
+    margin: 2px;
+    font-size: 1.5em;
+}
+
+
+p {
+
+    font-weight: 300;
+    color: #a5a5a5;
+}
+
+p.big {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 1.3em;
+}
+
+p.small {
+    font-size: 1.2em;
+    line-height: 2em;
+    max-width: 750px;
+}
+
+p.xsmall {
+    font-size: 1em !important;
+    line-height: 1.5em;
+    max-width: 750px;
+    opacity: 0.6;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+p a:hover {
+    opacity: 0.6;
+}
+
+ul {
+    padding-left: 17px;
+}
+
+ul li {
+    line-height: 24px;
+    list-style-type: square;
+    font-size: 12px;
+    padding: 0px;
+}
+
+a {
+    color: white;
+    font-weight: normal;
+    transition: 0.2s ease all;
+}
+
+/* Intro */
+.intro p {
+    font-size: 1.64em;
+
+}
+
+.intro p span {
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.intro {
+    display: flex;
+    max-width: 1900px;
+    padding: 26% 3% 100px;
+}
+
+.intro.default {
+    flex-direction: row;
+}
+
+.intro .image {
+    width: 41%;
+    position: relative;
+    display: flex;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+}
+
+.intro img {
+    width: 400px;
+    max-width: 100%;
+    transition: 0.6s ease all;
+    border-radius: 4px;
+    transform: rotate(-6deg);
+    position: relative;
+    mix-blend-mode: soft-light;
+}
+
+.intro .image::before {
+    content: ' ';
+    display: flex;
+    width: 180px;
+    height: 70px;
+    background: url('../img/tape2.png');
+    position: absolute;
+    background-size: 100% 100%;
+    background-position: center;
+    top: -40px;
+    right: 90px;
+    transform: rotate(25deg);
+    opacity: 0.6;
+}
+
+.intro .copy {
+    display: flex;
+}
+
+span{
+    color:#cbb824;
+}
+
+/* Main */
+.main {
+    transition: 0.6s ease-in-out all;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.overflowHidden .main {
+    opacity: 0.3;
+}
+
+.loaded .main {
+    opacity: 1 !important;
+}
+
+.modal-open .main {
+    opacity: 0.3;
+    object-fit: cover;
+}
+/* Introducción */
+.intro .copy-inner {
+    max-width: 90%;
+}
+
+/* Cambio de estilo del botón cuando se activa */
+#menuBtn:is(:hover, :focus-visible) {
+    background: rgba(0, 0, 0, 1.8);
+    filter: drop-shadow(0 0 15px #fff);
+}
+
+#menuBtn:is(:focus-visible) {
+    outline-offset: 3px;
+    outline-width: 1px;
+}
+
+/* Dribble */
+.dribbble {
+    position: relative;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+    max-width: 1900px;
+    margin: auto;
+    padding: 50px 140px 60px;
+}
+
+.dribbble .swiper-container {
+    overflow: visible;
+}
+
+.dribbble .swiper-container::before {
+    content: ' ';
+    display: flex;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.93) 100%);
+    width: 102%;
+    height: 14vw;
+    position: absolute;
+    z-index: 1;
+    bottom: -1px;
+    pointer-events: none;
+    left: -1px;
+}
+
+.dribbble picture,
+.dribbble img {
+    width: 100%;
+    mask-image: linear-gradient(to top, transparent -5%, black 45%);
+}
+
+.dribbble .swiper-slide {
+    overflow: hidden;
+}
+
+.dribbble .swiper-slide .aspect-ratio {
+    opacity: 0;
+}
+
+.dribbble .swiper-slide img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.dribbble .swiper-button-prev,
+.dribbble .swiper-button-next {
+    outline: none;
+    filter: grayscale(1) brightness(3);
+    opacity: 0.25;
+}
+
+.dribbble .swiper-button-prev:hover,
+.dribbble .swiper-button-next:hover {
+    opacity: 1;
+}
+
+.dribbble .swiper-button-prev,
+.dribbble .swiper-container-rtl .swiper-button-next {
+    left: -50px;
+}
+
+.dribbble .swiper-button-next,
+.dribbble .swiper-container-rtl .swiper-button-prev {
+    right: -50px;
+}
+
+.dribbble .swiper-pagination-bullets {
+    bottom: -10px;
+    text-align: right;
+}
+
+.dribbble .swiper-pagination-bullet {
+    background: white;
+    width: 18px;
+    height: 3px;
+    border-radius: 8px;
+    margin: 0 4px;
+}
+
+.dribbble .copyLeft {
+    padding: 0px 12% 0 7%;
+    margin-top: -160px;
+    position: relative;
+    max-width: 1220px;
+    mix-blend-mode: luminosity;
+    margin-top: -10%;
+}
+
+/* Tiles */
+.tiles {
+    max-width: 1900px;
+    margin: auto;
+    padding: 70px 90px 70px;
+}
+
+.tile {
+    background: rgb(255 255 255 / 5%);
+    border-radius: 4px;
+    padding: 50px 47px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.tile img.icon {
+    height: 42px;
+    margin-bottom: 79px;
+}
+
+.tile i {
+    font-size: 50px;
+}
+
+.tile h3 a {
+    text-decoration: none;
+}
+
+.tile h3 a:hover {
+    text-decoration: underline;
+}
+
+.tile p {
+    margin: 30px auto 10px;
+    max-width: 930px;
+}
+
+/* Botón */
+button rect {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    fill: hsl(0 0% 98%);
+}
+
+.unset rect {
+    transform-box: unset;
+}
+
+[aria-pressed=true] rect {
+    transition: translate 0.2s, rotate 0.2s 0.3s;
+}
+
+rect {
+    transition: rotate 0.2s 0s, translate 0.2s 0.2s;
+}
+
+[aria-pressed=true] rect:nth-of-type(1) {
+    translate: 0 333%;
+    rotate: -45deg;
+}
+
+[aria-pressed=true] rect:nth-of-type(2) {
+    rotate: 45deg;
+}
+
+[aria-pressed=true] rect:nth-of-type(3) {
+    translate: 0 -333%;
+    rotate: 45deg;
+}
+
+[aria-pressed=true] svg {
+    rotate: 90deg;
+    transition: rotate 1s 0.4s;
+}
+@supports (--custom: linear()) {
+  :root {
+   --elastic-out: linear(
+      0, 0.2178 2.1%, 1.1144 8.49%,
+      1.2959 10.7%, 1.3463 11.81%,
+      1.3705 12.94%, 1.3726, 1.3643 14.48%,
+      1.3151 16.2%, 1.0317 21.81%,
+      0.941 24.01%, 0.8912 25.91%,
+      0.8694 27.84%, 0.8698 29.21%,
+      0.8824 30.71%, 1.0122 38.33%, 1.0357,
+      1.046 42.71%, 1.0416 45.7%,
+      0.9961 53.26%, 0.9839 57.54%,
+      0.9853 60.71%, 1.0012 68.14%,
+      1.0056 72.24%, 0.9981 86.66%, 1
+      );
+   --elastic-in-out: linear(
+      0, 0.0009 8.51%, -0.0047 19.22%,
+      0.0016 22.39%, 0.023 27.81%,
+      0.0237 30.08%, 0.0144 31.81%,
+      -0.0051 33.48%, -0.1116 39.25%,
+      -0.1181 40.59%, -0.1058 41.79%, -0.0455,
+      0.0701 45.34%, 0.9702 55.19%,
+      1.0696 56.97%, 1.0987 57.88%,
+      1.1146 58.82%, 1.1181 59.83%,
+      1.1092 60.95%, 1.0057 66.48%,
+      0.986 68.14%, 0.9765 69.84%,
+      0.9769 72.16%, 0.9984 77.61%,
+      1.0047 80.79%, 0.9991 91.48%, 1
+      );
+    } [aria-pressed=true] svg {
+    transition-timing-function: var(--elastic-out);
+    }}
+
+/* Controls */
+.controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Video Background */
+.video_wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  object-fit: cover;
+  position: fixed;
+  opacity: 0.7;
+}
+
+#video-viewport {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+#video-viewport video {
+  max-width: none;
+}
+
+/* boton creditos */
+.err-btn {
+  border: none;
+  text-align: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #00ACC1;
+  transition-duration: 0.2s;
+  color: white;
+  fill: white;
+  opacity: 0.5;
+}
+
+.err-btn:hover {
+  background: #29B6F6;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+.err-btn:active {
+  background: #01579B;
+  padding: 4.5px;
+}
+
+.err-msg-bg {
+  display: none;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.err-msg {
+  border-top: 4px solid #C62828;
+  background-color: black;
+
+  padding: 0px 10px;
+  color: white;
+  fill: white;
+  z-index: 1;
+  border-radius: 2%;
+}
+
+a, a:visited {
+  color: #4FC3F7;
+}
+
+.err-msg button {
+  background: none;
+  border: none;
+  margin: 0;
+  float: right;
+  cursor: pointer;
+}
+</style>
+
+<style>
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 1550px) {
+.dribbble .swiper-container-horizontal>.swiper-pagination-bullets {
+bottom: initial;
+top: 8px;
+position: absolute;
+right: 0;
+left: 0;
+padding: 0px 7%;
+line-height: 10px;
+text-align: left;
+}}
+
+
+@media screen and (max-width: 1200px) {
+.sub-footer .inner {
+padding: 14px 7%;
+}
+
+.modal {
+padding: 0;
+}
+
+.modal .close {
+right: 18px;
+top: 18px;
+font-size: 30px;
+}
+
+
+
+.modal#contact .modal-inner {
+padding: 80px 0px 50px;
+}
+
+br.mobile-dead {
+display: none;
+}
+
+h1 {
+font-size: 2.4em;
+}
+
+h2 .sup-heading {
+font-size: 0.5em;
+}
+
+
+.intro .copy {
+width: 100%;
+}
+
+.intro p:first-of-type {
+font-size: 2em;
+}
+
+.intro {
+padding: 30% 3% 100px;
+}
+
+.intro .copy-inner {
+max-width: 100%;
+}
+
+.dribbble {
+padding: 70px 7% 60px;
+}}
+
+/* new */
+@media screen and (max-width: 1024px) {
+.new .swiper {
+mix-blend-mode: unset;
+}
+
+.content.columns .grid {
+font-size: 1.0em;
+}
+
+h1 {
+font-size: 2em;
+}
+
+.intro p:first-of-type {
+font-size: 1.6em;
+}
+
+.content {
+padding: 0 7% 0;
+}}
+
+@media screen and (max-width: 960px) {
+.intro {
+padding: 42% 3% 60px;
+}}
+
+/* Navegación 2 */
+@media screen and (max-width: 800px) {
+.header {
+padding: 14px 0;
+}
+
+h1 {
+font-size: 1.6em;
+}
+
+.intro p:first-of-type {
+font-size: 1.2em;
+}
+
+.intro {
+padding: 60% 5% 60px;
+}
+
+.header .inner {
+padding: 0px 7%;
+}
+
+nav.links a:first-child {
+display: none;
+}}
+
+@media screen and (max-width: 600px) {
+.dropdown-content {
+top: 98px;
+left: 10px;
+}
+
+.intro {
+padding: 74% 3% 60px;
+}}
+
+/* Barra de navegación */
+@media screen and (max-width: 540px) {
+.header {
+padding: 14px 0;
+}
+
+.header .inner {
+padding: 0px 7%;
+}
+
+nav.links a {
+font-size: 13px;
+margin: 0;
+}
+
+nav.links {
+display: none;
+}}
+
+.dribbble {
+padding: 1px 0% 30px;
+}
+
+@media screen and (max-width: 470px) {
+nav.links {
+justify-content: center;
+}
+
+nav.links a {
+margin: 5px;
+}
+
+a.button, .button{
+font-size: 0.9em;
+}
+
+h1 {
+font-size: 1.6em;
+}
+
+#design{
+    color: #cbb824;
+    font-size: 1.6em;
+}
+
+.intro p:first-of-type {
+font-size: 1.2em;
+}
+
+.intro {
+padding: 85% 5% 72px;
+}
+
+.dribbble .copy {
+padding-right: 7%;
+}}
+</style>
+
+<script> // Sesion
+        // Verificar si localStorage está vacío o no contiene el nombre de usuario
+        var nombreUsuario = localStorage.getItem('nombre_usuario');
+        if (!nombreUsuario) {
+        window.location.href = 'login/login.html'; // Si no hay nombre de usuario, redirigir a la página de inicio de sesión
+        } else {
+        // Mostrar un mensaje de bienvenida con el nombre de usuario
+        document.getElementById('bienvenida').innerText = '¡Bienvenido, ' + nombreUsuario + '!';
+        }
+
+        // Agregar un controlador de eventos al botón para abrir el menú
+        document.getElementById('menuBtn').addEventListener('click', function() {
+        document.getElementById('menuContent').classList.toggle('show');
+        });
+
+        // Agregar un controlador de eventos al botón para borrar el nombre de usuario del localStorage
+        document.getElementById('borrarUsuario').addEventListener('click', function() {
+        localStorage.removeItem('nombre_usuario');
+        // Recargar la página después de borrar la clave
+        location.reload();
+        });
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js">// video de fondo</script>
+<script type="text/javascript">
+
+    // Load correct video
+    let video = document.querySelector('#video-viewport video')
+    let source = document.querySelector('#video-viewport source')
+    var Today = new Date();
+    var H = Today.getHours();
+
+    if (H >= 9 && H < 23 ) {
+        source.src='fondo/working.mp4'
+        video.muted = true
+        video.autoplay =true
+        video.controls = false;
+        video.load()
+        video.play();
+    }
+
+    else if (H >= 23  && H < 24) {
+        video.muted = true;
+        video.autoplay = true;
+        video.controls = false;
+        video.load();
+        video.play();
+        source.src="fondo/sleeping.mp4"
+        console.log("sleeping");
+        console.log(source.src)
+
+    }
+    else if (H >= 0  && H < 9) {
+        video.muted = true;
+        video.autoplay = true;
+        video.controls = false;
+        video.load();
+        video.play();
+        source.src="fondo/sleeping.mp4"
+        console.log("sleeping");
+        console.log(source.src)
+    }
+    // Sizing
+    var min_w = 300; // minimum video width allowed
+    var vid_w_orig;  // original video dimensions
+    var vid_h_orig;
+
+    jQuery(function() { // runs after DOM has loaded
+
+        vid_w_orig = parseInt(jQuery('video').attr('width'));
+        vid_h_orig = parseInt(jQuery('video').attr('height'));
+        $('#debug').append("<p>DOM loaded</p>");
+
+        jQuery(window).resize(function () { resizeToCover(); });
+        jQuery(window).trigger('resize');
+        });
+
+        function resizeToCover() {
+        // set the video viewport to the window size
+        jQuery('#video-viewport').width(jQuery(window).width());
+        jQuery('#video-viewport').height(jQuery(window).height());
+
+        // use largest scale factor of horizontal/vertical
+        var scale_h = jQuery(window).width() / vid_w_orig;
+        var scale_v = jQuery(window).height() / vid_h_orig;
+        var scale = scale_h > scale_v ? scale_h : scale_v;
+
+        // don't allow scaled width < minimum video width
+        if (scale * vid_w_orig < min_w) {scale = min_w / vid_w_orig;};
+
+        // now scale the video
+        jQuery('video').width(scale * vid_w_orig);
+        jQuery('video').height(scale * vid_h_orig);
+        // and center it by scrolling the video viewport
+        jQuery('#video-viewport').scrollLeft((jQuery('video').width() - jQuery(window).width()) / 2);
+        jQuery('#video-viewport').scrollTop((jQuery('video').height() - jQuery(window).height()) / 2);
+
+        // debug output
+        jQuery('#debug').html("<p>win_w: " + jQuery(window).width() + "</p>");
+        jQuery('#debug').append("<p>win_h: " + jQuery(window).height() + "</p>");
+        jQuery('#debug').append("<p>viewport_w: " + jQuery('#video-viewport').width() + "</p>");
+        jQuery('#debug').append("<p>viewport_h: " + jQuery('#video-viewport').height() + "</p>");
+        jQuery('#debug').append("<p>video_w: " + jQuery('video').width() + "</p>");
+        jQuery('#debug').append("<p>video_h: " + jQuery('video').height() + "</p>");
+        jQuery('#debug').append("<p>vid_w_orig: " + vid_w_orig + "</p>");
+        jQuery('#debug').append("<p>vid_h_orig: " + vid_h_orig + "</p>");
+        jQuery('#debug').append("<p>scale: " + scale + "</p>");
+    };
+
+</script>
+
+<script>// boton menu
+const TOGGLE = document.querySelector('button');
+const HANDLE_TOGGLE = () => {
+TOGGLE.setAttribute('aria-pressed', TOGGLE.matches('[aria-pressed=true]') ? false : true);
+};
+
+TOGGLE.addEventListener('click', HANDLE_TOGGLE);
+const INPUT = document.querySelector('input');
+const APPLY_TRANSFORM_BOX = () => {
+TOGGLE.classList.toggle('unset');
+};
+</script>
+
+<script>  // boton azul
+function errorMsg() {
+document.querySelector('.err-msg-bg').style.display = 'flex';
+}
+
+function closeErr() {
+document.querySelector('.err-msg-bg').style.display = 'none';
+}
+</script>
+
+<script src="swiper-bundle.min.js"></script>
+<script type="text/javascript">
+        /* Sliders */
+        var swiper = new Swiper(".galleryThumbs", {
+            spaceBetween: 8,
+            slidesPerView: 1,
+            lazy: true,
+            freeMode: true,
+            watchSlidesProgress: true,
+            loop: true,
+            // Disable all automatic movement
+            freeModeSticky: true,
+            freeModeMomentum: false,
+            freeModeMomentumRatio: 0,
+            freeModeMomentumVelocityRatio: 0,
+            freeModeMinimumVelocity: 0,
+            freeModeMinimumVelocityTolerance: 0,
+            freeModeMomentumBounce: false,
+            freeModeMomentumBounceRatio: 0,
+            freeModeMomentumBounceVelocityRatio: 0,
+            scrollbar: {
+            el: ".swiper-scrollbar",
+            //hide: true,
+            },
+            breakpoints: {
+            640: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            }, 1360: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            }}});
+
+        var swiper2 = new Swiper(".galleryTop", {
+            spaceBetween: 10,
+            lazy: true,
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+            swiper: swiper
+            }});
+
+</script>
+
+</body>
+</html>

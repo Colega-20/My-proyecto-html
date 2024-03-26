@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linicio y registro</title>
+</head>
+<body>
+<!-- particulas -->
+<div class="spriteWrap"></div>
+<!-- partial -->
+<div class="marco">
+  <span></span>
+  <span></span>
+  <span></span>
+  <form id="formulario_de_inicio_de_sesión">
+  <h2>Ingresar</h2>
+
+  <div class="inputbox">
+  <input type="email" id="emailInput" name="correo" required placeholder="Correo">
+  </div>
+
+  <div class="inputbox">
+  <input type="password" id="passwordInput" placeholder="Contraseña" required>
+  <div class="mostrar_clave_ingresar"></div>
+  </div>
+
+  <div class="inputbox group">
+  <a href="#">Olvidasde la Clave</a>
+  <a href="#" id="Inscribirse">Inscribirse</a>
+  </div>
+
+  <div id="mensaje_error_inicio_sesion" ></div>
+
+  <button id="Borrar_cuenta" type="button">Borrar cuenta</button>
+
+  <div class="inputbox">
+  <input type="submit" value="sign in">
+  </div>
+  </form>
+
+  <!-- formurario de registro -->
+  <form id="formulario_de_Inscribirse">
+  <h2>Registro</h2>
+
+  <div class="inputbox">
+  <input type="text" id="userInput" required placeholder="Nombre de usuario">
+  </div>
+
+  <div class="inputbox">
+  <input type="email" id="emailInputRegistro" name="nuevo-correo" required placeholder="Correo">
+  </div>
+
+  <div class="inputbox">
+  <input type="password" id="crear_contraseña" required placeholder="Crear contraseña">
+  <div class="mostrar_clave_registrar"></div>
+  </div>
+
+  <div class="inputbox">
+  <input type="password" id="confirmar_contraseña" placeholder="Confirmar contraseña">
+  </div>
+
+  <div id="error_confirmar_contraseña"></div>
+
+  <div class="inputbox group">
+  <a href="#">Ya tengo cuenta</a>
+  <a href="#" id="Ingresar">Ingresar</a>
+  </div>
+
+  <div class="inputbox">
+  <input type="submit" value="signup" id="RegistrarCuenta">
+  </div>
+
+  <div id="mensaje_cuenta_creada" style="color: rgb(255 228 20); position: relative; display: none;">Cuenta creada! preione "Ingresar"</div>
+
+  </form>
+</div>
+
+
+<script> // lleva al formulario de registro y ingreso 
+    document.addEventListener('DOMContentLoaded', function() {
+        const body = document.querySelector('body');
+        const Inscribirse = document.querySelector('#Inscribirse');
+        const Ingresar = document.querySelector('#Ingresar');
+        //const RegistrarCuenta = document.querySelector('#RegistrarCuenta');
+
+        Inscribirse.addEventListener('click', function() {
+        body.classList.add('Inscribirse');
+        });
+
+        Ingresar.addEventListener('click', function() {
+        body.classList.remove('Inscribirse');
+        });
+
+        //RegistrarCuenta.addEventListener('click', function() {
+        //body.classList.remove('Inscribirse');
+        //});
+
+        // textura y funcion de botones para mostrar y oultar clave
+        const togglePasswordVisibility = function(btn, input) {
+        btn.addEventListener('click', function() {
+        if (input.type === 'password') {
+        input.type = 'text';
+        this.style.background = 'url(s.png)'; // Change background
+        } else {
+        input.type = 'password';
+        this.style.background = 'url(o.png)'; // Change background
+        }});
+        };
+
+        const mostrar_contraseñaBtns = document.querySelectorAll('.mostrar_clave_ingresar');
+        const mostrar_clave_registrarBtns = document.querySelectorAll('.mostrar_clave_registrar');
+
+        mostrar_contraseñaBtns.forEach(function(btn) {
+        const passwordInput = btn.previousElementSibling;
+        togglePasswordVisibility(btn, passwordInput);
+        });
+
+        mostrar_clave_registrarBtns.forEach(function(btn) {
+        const crear_contraseña = btn.previousElementSibling;
+        togglePasswordVisibility(btn, crear_contraseña);
+        });
+    });
+</script>
+
+<script>//codigo sensible, logia del formurario
+    // Cargar datos del localStorage al iniciar la página
+    var datosGuardados = JSON.parse(localStorage.getItem('datosGuardados')) || {};
+    document.getElementById('formulario_de_Inscribirse').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe
+
+    // Obtener los valores del formulario de registro
+    var userInput = document.getElementById('userInput').value;
+    var emailInputRegistro = document.getElementById('emailInputRegistro').value;
+    var crearContraseña = document.getElementById('crear_contraseña').value;
+    var confirmarContraseña = document.getElementById('confirmar_contraseña').value;
+
+    // Verificar si las contraseñas coinciden
+    if (crearContraseña !== confirmarContraseña) {
+    // Mostrar mensaje de error si las contraseñas no coinciden
+    var mensajeError = document.getElementById('error_confirmar_contraseña');
+    mensajeError.innerText = 'Las contraseñas no coinciden.';
+
+    // Después de 4 segundos, ocultar el mensaje de error
+    setTimeout(function() {
+    mensajeError.innerText = ''; // Limpiar el mensaje de error
+    }, 4000);
+    return; // Detener el proceso de registro
+    }
+
+    // Verificar si ya existe una cuenta con el mismo correo electrónico o usuario
+    var cuentaExistente = false;
+    for (var i = 0; i < localStorage.length; i++) {
+    var clave = localStorage.key(i);
+    var datosGuardados = JSON.parse(localStorage.getItem(clave));
+
+    // Comprobar si ya existe una cuentacon el mismo correo electrónico o usuario
+    if (emailInputRegistro === datosGuardados.correo || userInput === datosGuardados.usuario) {
+    cuentaExistente = true;
+    break;
+    }}
+
+    // Si se encontró una cuenta existente, mostrar mensaje y detener el proceso de registro
+    if (cuentaExistente) {
+    alert('Ya existe una cuenta registrada con este correo electrónico, utilice otro diferente.');
+    return;
+    }
+    
+    // Crear un objeto para almacenar los datos del usuario
+    var datosGuardados = {
+    usuario: userInput,
+    correo: emailInputRegistro,
+    contraseña: crearContraseña
+    };
+
+    // Guardar los datos en localStorage sin sobrescribir
+    var clave = 'usuario_' + Date.now(); // Generar una clave única
+    localStorage.setItem(clave, JSON.stringify(datosGuardados));
+
+    // Limpiar el formulario después de enviar
+    this.reset();
+
+    // Mostrar mensaje de cuenta creada
+    document.getElementById('mensaje_cuenta_creada').style.display = 'block';
+
+    // Después de 4 segundos, ocultar el mensaje de cuenta creada
+    setTimeout(function() {
+    document.getElementById('mensaje_cuenta_creada').style.display = 'none';
+    }, 4000);
+    });
+
+    // formurario de inicio de sesion
+    document.getElementById('formulario_de_inicio_de_sesión').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe
+
+    // Obtener los valores del formulario de inicio de sesión
+    var emailInput = document.getElementById('emailInput').value;
+    var passwordInput = document.getElementById('passwordInput').value;
+
+    // Variable para almacenar si se encontraron los datos de inicio de sesión correctos
+    var datosCoinciden = false;
+
+    // Iterar sobre los datos almacenados en localStorage
+    for (var i = 0; i < localStorage.length; i++) {
+    var clave = localStorage.key(i);
+    var datosGuardados = JSON.parse(localStorage.getItem(clave));
+
+    // Comprobar si los datos coinciden con los guardados en localStorage
+    if (emailInput === datosGuardados.correo && passwordInput === datosGuardados.contraseña) {
+    // Mostrar una alerta de inicio de sesión exitoso
+    alert('¡Inicio de sesión exitoso para el usuario: ' + datosGuardados.usuario + '!');
+    datosCoinciden = true;
+    
+    // Extraer el nombre de usuario
+    var usuario = datosGuardados.usuario;
+
+    // Abrir una nueva página en una nueva pestaña
+    var pagina_inicio = window.location.href = '../index.html';
+
+    // Guardar el nombre de usuario en localStorage
+    localStorage.setItem('nombre_usuario', usuario);
+    break; // Detener la iteración una vez que se encuentren los datos correctos
+    }}
+
+    // Si no se encontraron datos coincidentes, mostrar un mensaje de error
+    if (!datosCoinciden) {
+    var mensajeErrorInicioSesion = document.getElementById('mensaje_error_inicio_sesion');
+    mensajeErrorInicioSesion.innerText = 'Error de inicio de sesión. Verifica tu correo y contraseña.';
+    mensajeErrorInicioSesion.style.display = 'block'; // Asegurar que el mensaje esté visible
+
+    // Ocultar el mensaje después de 8 segundos
+    setTimeout(function() {
+    mensajeErrorInicioSesion.style.display = 'none';
+    }, 8000);
+    } this.reset(); // Limpiar el formulario después de enviar
+    });
+
+    // Add an event listener to the new button
+    document.getElementById('Borrar_cuenta').addEventListener('click', function () {
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    // Get the input values
+    const emailInput = document.getElementById('emailInput').value;
+    const passwordInput = document.getElementById('passwordInput').value;
+
+    // Display the credentials in the console
+    console.log(`Email: ${emailInput}`);
+    console.log(`Password: ${passwordInput}`);
+
+    // Remove the credentials from localStorage
+    removeCredentialsFromLocalStorage();
+    });
+
+    // Helper function to remove the credentials from localStorage
+    function removeCredentialsFromLocalStorage() {
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+    for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const savedCredentials = JSON.parse(localStorage.getItem(key));
+    if (savedCredentials.correo === email && savedCredentials.contraseña === password) {
+    localStorage.removeItem(key);
+    break;
+    }}
+
+    // Clear the form inputs
+    document.getElementById('emailInput').value = '';
+    document.getElementById('passwordInput').value = '';
+    }
+
+</script>
+
+    <style> /* General astyles*/
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    }
+    
+    body {
+    overflow: hidden;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    }
+
+    .spriteWrap {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+    }
+
+    .marco {
+    position: relative;
+    width: 350px;
+    height: 340px;
+    border-radius: 5%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.5s;
+    overflow: hidden;
+    }
+
+    #error_confirmar_contraseña, #mensaje_error_inicio_sesion {
+    color: red;
+    text-align: center;
+    width: 240px;
+    }
+
+    /* Estilos para el botón de mostrar contraseña en el formulario de ingreso y registro*/
+    .mostrar_clave_ingresar, .mostrar_clave_registrar {
+    bottom: 6px;
+    height: 16px;
+    position: absolute;
+    right: 5px;
+    width: 16px;
+    border-radius: 0;
+    border: none;
+    user-select: none;
+    outline: none;
+    background: url(o.png);
+    }
+    
+    .marco span {
+    position: absolute;
+    inset: 5px;
+    overflow: hidden;
+    border-radius: 5%;
+    }
+    
+    /* marco del formurario de Ingresar y fondo */
+    #Inscribirse {
+    color: #df942b;
+    }
+
+    #Inscribirse:hover {
+    text-decoration: underline;
+    }
+
+    body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url(fondo/neom.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    }
+
+    .marco::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #ff9400 -45deg, #ff9400 45deg, transparent 45deg, transparent 135deg, #df942b 135deg, #df942b 225deg, transparent 225deg, transparent 315deg);
+    border-radius: 5%;
+    animation: animate 5s linear infinite;
+    }
+
+    /* animacion del marco*/
+    @property --a
+    {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+    }
+
+    @keyframes animate {
+    0% {
+        --a: 0deg
+    }
+    100% {
+        --a: 360deg
+    }}
+
+    .marco span::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: url(fondo/neom.jpg) no-repeat; background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    }
+
+    .marco span::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: url(fondo/neom.jpg) no-repeat;background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    }
+
+    form .inputbox input[type="submit"], #Borrar_cuenta
+    {
+    background: #ff9400;
+    font-weight: 500; 
+    cursor: pointer;
+    }
+
+    /* marco del formurario de registro y fondo */
+    #Ingresar {
+    color: #f54e4d;
+    }
+
+    #Ingresar:hover {
+    text-decoration: underline;
+    }
+
+    body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url(fondo/viggo-danielsen.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 0.5s;
+    }
+
+    body.Inscribirse .marco span::before,
+    body.Inscribirse .marco span::after {
+    background: url(fondo/viggo-danielsen.jpg) no-repeat;background-attachment: fixed;
+    background-size: cover ;
+    background-position: center;
+    filter: blur(10px);
+    }
+
+    body.Inscribirse::after {
+    opacity: 1;
+    }
+    
+    body.Inscribirse .marco {
+    height: 440px;
+    }
+
+    body.Inscribirse .marco::before {
+    filter: hue-rotate(310deg);
+    }
+
+    form#formulario_de_Inscribirse .inputbox input[type="submit"]
+    {
+    background: #f4242f;
+    font-weight: 500; 
+    cursor: pointer;
+    color: #fff;
+    }
+
+    /* formurario contenido */
+    form {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    transition: 0.5s;
+    }
+
+    form#formulario_de_Inscribirse {
+    left: 100%;
+    }
+
+    body.Inscribirse form#formulario_de_inicio_de_sesión {
+    left: -100%;
+    }
+
+    body.Inscribirse form#formulario_de_Inscribirse {
+    left: 0;
+    }
+
+    /* color del texto de la caja de entrada y formurario */
+    form .inputbox input::placeholder {
+    color: rgba(0, 0, 0, 0.685);
+    }
+    
+    /* Texto */
+    form h2 {
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform:uppercase;
+    margin-bottom: 10px;
+    }
+
+    form .inputbox, #Borrar_cuenta {
+    width: 70%;
+
+    justify-content: space-between;
+    position: relative;
+    }
+
+    form .inputbox a {
+    color: #ffffffb3;
+    text-decoration: none;
+    font-size: 0.85em;
+    }
+    
+    /* colores del input*/
+    form .inputbox input {
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.4);
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: #000000;
+    }
+
+    /* boton*/
+    #Borrar_cuenta{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.4);
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: #000000;
+    }
+    
+    
+    </style>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script>
+    jQuery(document).ready(function ($) {
+  // noise grain toggle
+  $("a.noiseTest").on("click", function (event) {
+    event.preventDefault();
+    $(".noise").toggleClass("active");
+    $(this).toggleClass("active");
+  });
+});
+
+/* Credit to Collin Henderson @ AstralApp.com */
+
+(function () {
+  var WIDTH, HEIGHT, canvas, con, g;
+  var pxs = [];
+  var rint = 50;
+
+  $.fn.sprites = function () {
+    this.append($('<canvas id="sprites"></canvas>'));
+    setup(this);
+  };
+
+  function setup(container) {
+    var windowSize = function () {
+      WIDTH = container.innerWidth();
+      HEIGHT = container.innerHeight();
+      canvas = container.find("#sprites");
+      canvas.attr("width", WIDTH).attr("height", HEIGHT);
+    };
+
+    windowSize();
+
+    $(window).resize(function () {
+      windowSize();
+    });
+
+    con = canvas[0].getContext("2d");
+
+    for (var i = 0; i < 100; i++) {
+      pxs[i] = new Circle();
+      pxs[i].reset();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  function draw() {
+    con.clearRect(0, 0, WIDTH, HEIGHT);
+    con.globalCompositeOperation = "lighter";
+
+    for (var i = 0; i < pxs.length; i++) {
+      pxs[i].fade();
+      pxs[i].move();
+      pxs[i].draw();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  function Circle() {
+    this.s = {
+      ttl: 15000,
+      xmax: 5,
+      ymax: 2,
+      rmax: 7,
+      rt: 1,
+      xdef: 960,
+      ydef: 540,
+      xdrift: 4,
+      ydrift: 4,
+      random: true,
+      blink: true
+    };
+
+    this.reset = function () {
+      this.x = this.s.random ? WIDTH * Math.random() : this.s.xdef;
+      this.y = this.s.random ? HEIGHT * Math.random() : this.s.ydef;
+      this.r = (this.s.rmax - 1) * Math.random() + 1;
+
+      this.dx = Math.random() * this.s.xmax * (Math.random() < 0.5 ? -1 : 1);
+      this.dy = Math.random() * this.s.ymax * (Math.random() < 0.5 ? -1 : 1);
+
+      this.hl = (this.s.ttl / rint) * (this.r / this.s.rmax);
+      this.rt = Math.random() * this.hl;
+
+      this.stop = Math.random() * 0.2 + 0.4;
+
+      this.s.rt = Math.random() + 1;
+      this.s.xdrift *= Math.random() * (Math.random() < 0.5 ? -1 : 1);
+      this.s.ydrift *= Math.random() * (Math.random() < 0.5 ? -1 : 1);
+    };
+
+    this.fade = function () {
+      this.rt += this.s.rt;
+    };
+
+    this.draw = function () {
+      var newo, cr;
+
+      if (this.s.blink && (this.rt <= 0 || this.rt >= this.hl)) {
+        this.s.rt = this.s.rt * -1;
+      } else if (this.rt >= this.hl) {
+        this.reset();
+      }
+
+      newo = 1 - this.rt / this.hl;
+
+      con.beginPath();
+      con.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+      con.closePath();
+
+      cr = this.r * newo;
+
+      g = con.createRadialGradient(
+        this.x,
+        this.y,
+        0,
+        this.x,
+        this.y,
+        cr <= 0 ? 1 : cr
+      );
+      g.addColorStop(0.0, "rgba(193,254,254," + newo + ")");
+      g.addColorStop(this.stop, "rgba(193,254,254," + newo * 0.2 + ")");
+      g.addColorStop(1.0, "rgba(193,254,254,0)");
+
+      con.fillStyle = g;
+      con.fill();
+    };
+
+    this.move = function () {
+      this.x += (this.rt / this.hl) * this.dx;
+      this.y += (this.rt / this.hl) * this.dy;
+      if (this.x > WIDTH || this.x < 0) this.dx *= -1;
+      if (this.y > HEIGHT || this.y < 0) this.dy *= -1;
+    };
+
+    this.getX = function () {
+      return this.x;
+    };
+
+    this.getY = function () {
+      return this.y;
+    };
+  }
+})();
+
+$(".spriteWrap").sprites();
+  </script>
+</body>
+</html>
