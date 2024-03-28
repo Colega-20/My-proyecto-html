@@ -29,8 +29,8 @@
   </div>
 
   <div class="inputbox group">
-  <a href="#">Olvidasde la Clave</a>
-  <a href="#" id="Inscribirse">Inscribirse</a>
+  <a href="#">No tienes cuenta?</a>
+  <a href="#" id="Inscribirse">Crear una</a>
   </div>
 
   <div id="mensaje_error_inicio_sesion" ></div>
@@ -38,7 +38,7 @@
   <button id="Borrar_cuenta" type="button">Borrar cuenta</button>
 
   <div class="inputbox">
-  <input type="submit" value="sign in">
+  <input type="submit" value="Ingresar">
   </div>
   </form>
 
@@ -513,7 +513,7 @@
     // Comprobar si los datos coinciden con los guardados en localStorage
     if (emailInput === datosGuardados.correo && passwordInput === datosGuardados.contraseña) {
     // Mostrar una alerta de inicio de sesión exitoso
-    alert('¡Inicio de sesión exitoso para el usuario: ' + datosGuardados.usuario + '!');
+    alert('¡Inicio de sesión exitoso' + datosGuardados.usuario + '! Las cuentas son temporales.');
     datosCoinciden = true;
     
     // Extraer el nombre de usuario
