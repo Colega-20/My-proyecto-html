@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>linicio y registro</title>
 </head>
 <body>
+
+
 <!-- particulas -->
 <div class="spriteWrap"></div>
 <!-- partial -->
@@ -75,6 +78,308 @@
 
   </form>
 </div>
+
+  <style> /* General astyles*/
+
+    * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: sans-serif;
+     }
+     
+     body {
+     overflow: hidden;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     }
+ 
+     .spriteWrap {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     pointer-events: none;
+     z-index: 1;
+     }
+ 
+     .marco {
+     position: relative;
+     width: 350px;
+     height: 340px;
+     border-radius: 5%;
+     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 1000;
+     transition: 0.5s;
+     overflow: hidden;
+     }
+
+     #error_confirmar_contraseña, #mensaje_error_inicio_sesion {
+     color: red;
+     text-align: center;
+     width: 240px;
+     }
+ 
+     /* Estilos para el botón de mostrar contraseña en el formulario de ingreso y registro*/
+     .mostrar_clave_ingresar, .mostrar_clave_registrar {
+     bottom: 6px;
+     height: 16px;
+     position: absolute;
+     right: 5px;
+     width: 16px;
+     border-radius: 0;
+     border: none;
+     user-select: none;
+     outline: none;
+     background: url(o.png);
+     }
+     
+     .marco span {
+     position: absolute;
+     inset: 5px;
+     overflow: hidden;
+     border-radius: 5%;
+     }
+     
+     /* marco del formurario de Ingresar y fondo */
+     #Inscribirse {
+     color: #df942b;
+     }
+ 
+     #Inscribirse:hover {
+     text-decoration: underline;
+     }
+ 
+     body::before {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: url(fondo/neom.jpg) no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     }
+ 
+     .marco::before {
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: repeating-conic-gradient(from var(--a), #ff9400 -45deg, #ff9400 45deg, transparent 45deg, transparent 135deg, #df942b 135deg, #df942b 225deg, transparent 225deg, transparent 315deg);
+     border-radius: 5%;
+     animation: animate 5s linear infinite;
+     }
+ 
+     /* animacion del marco*/
+     @property --a
+     {
+     syntax: '<angle>';
+     inherits: true;
+     initial-value: 0deg;
+     }
+ 
+     @keyframes animate {
+     0% {
+         --a: 0deg
+     }
+     100% {
+         --a: 360deg
+     }}
+ 
+
+     @media screen and (max-width: 1280px) {
+     .marco::before {
+     animation: none;
+     background: none; 
+     }}
+
+     @media screen and (max-width: 1260px) {
+     .marco{
+     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.45);
+     }}
+
+     .marco span::before {
+     content: '';
+     position: absolute;
+     inset: 5px;
+     background: url(fondo/neom.jpg) no-repeat; background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     filter: blur(5px);
+     }
+ 
+     .marco span::after {
+     content: '';
+     position: absolute;
+     inset: 5px;
+     background: url(fondo/neom.jpg) no-repeat;background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     filter: blur(5px);
+     }
+ 
+     form .inputbox input[type="submit"], #Borrar_cuenta
+     {
+     background: #ff9400;
+     font-weight: 500; 
+     cursor: pointer;
+     }
+ 
+     /* marco del formurario de registro y fondo */
+     #Ingresar {
+     color: #f54e4d;
+     }
+ 
+     #Ingresar:hover {
+     text-decoration: underline;
+     }
+ 
+     body::after {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: url(fondo/viggo-danielsen.jpg) no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     opacity: 0;
+     transition: 0.5s;
+     }
+ 
+     body.Inscribirse .marco span::before,
+     body.Inscribirse .marco span::after {
+     background: url(fondo/viggo-danielsen.jpg) no-repeat;background-attachment: fixed;
+     background-size: cover ;
+     background-position: center;
+     filter: blur(10px);
+     }
+ 
+     body.Inscribirse::after {
+     opacity: 1;
+     }
+     
+     body.Inscribirse .marco {
+     height: 440px;
+     }
+ 
+     body.Inscribirse .marco::before {
+     filter: hue-rotate(310deg);
+     }
+ 
+     form#formulario_de_Inscribirse .inputbox input[type="submit"]
+     {
+     background: #f4242f;
+     font-weight: 500; 
+     cursor: pointer;
+     color: #fff;
+     }
+ 
+     /* formurario contenido */
+     form {
+     position: absolute;
+     left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     width: 100%;
+     gap: 15px;
+     transition: 0.5s;
+     }
+ 
+     form#formulario_de_Inscribirse {
+     left: 100%;
+     }
+ 
+     body.Inscribirse form#formulario_de_inicio_de_sesión {
+     left: -100%;
+     }
+ 
+     body.Inscribirse form#formulario_de_Inscribirse {
+     left: 0;
+     }
+ 
+     /* color del texto de la caja de entrada y formurario */
+     form .inputbox input::placeholder {
+     color: rgba(0, 0, 0, 0.685);
+     }
+     
+     /* Texto */
+     form h2 {
+     position: relative;
+     color: #fff;
+     font-weight: 500;
+     font-size: 1.5em;
+     letter-spacing: 0.1em;
+     text-transform:uppercase;
+     margin-bottom: 10px;
+     }
+ 
+     form .inputbox, #Borrar_cuenta {
+     width: 70%;
+ 
+     justify-content: space-between;
+     position: relative;
+     }
+ 
+     form .inputbox a {
+     color: #ffffffb3;
+     text-decoration: none;
+     font-size: 0.85em;
+     }
+     
+     /* colores del input*/
+     form .inputbox input {
+     width: 100%;
+     outline: none;
+     border: 1px solid rgba(0, 0, 0, 0.15);
+     background: rgba(255, 255, 255, 0.4);
+     padding: 6px 15px;
+     border-radius: 4px;
+     font-size: 0.85em;
+     color: #000000;
+     }
+ 
+     /* boton*/
+     #Borrar_cuenta{
+     outline: none;
+     border: 1px solid rgba(0, 0, 0, 0.15);
+     background: rgba(255, 255, 255, 0.4);
+     padding: 6px 15px;
+     border-radius: 4px;
+     font-size: 0.85em;
+     color: #000000;
+     }
+     
+     </style>
+ 
+     <script>
+    window.addEventListener('load', function() {
+    // Función para detectar si se trata de un dispositivo móvil
+    function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    // Función para eliminar elementos específicos en dispositivos móviles
+    function eliminarEnDispositivoMovil() {
+    if (isMobileDevice()) {
+    var spans = document.querySelectorAll('.marco span');
+    spans.forEach(function(span) {
+    span.parentNode.removeChild(span);
+    });
+
+    var spriteWrap = document.querySelector('.spriteWrap');
+    if (spriteWrap) {
+    spriteWrap.parentNode.removeChild(spriteWrap);
+            }}}
+    // Llamar a la función para eliminar elementos en dispositivos móviles
+    eliminarEnDispositivoMovil();
+});
+</script>
 
 
 <script> // lleva al formulario de registro y ingreso 
@@ -270,273 +575,6 @@
     }
 
 </script>
-
-    <style> /* General astyles*/
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    }
-    
-    body {
-    overflow: hidden;
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    }
-
-    .spriteWrap {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    pointer-events: none;
-    z-index: 1000;
-    }
-
-    .marco {
-    position: relative;
-    width: 350px;
-    height: 340px;
-    border-radius: 5%;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: 0.5s;
-    overflow: hidden;
-    }
-
-    #error_confirmar_contraseña, #mensaje_error_inicio_sesion {
-    color: red;
-    text-align: center;
-    width: 240px;
-    }
-
-    /* Estilos para el botón de mostrar contraseña en el formulario de ingreso y registro*/
-    .mostrar_clave_ingresar, .mostrar_clave_registrar {
-    bottom: 6px;
-    height: 16px;
-    position: absolute;
-    right: 5px;
-    width: 16px;
-    border-radius: 0;
-    border: none;
-    user-select: none;
-    outline: none;
-    background: url(o.png);
-    }
-    
-    .marco span {
-    position: absolute;
-    inset: 5px;
-    overflow: hidden;
-    border-radius: 5%;
-    }
-    
-    /* marco del formurario de Ingresar y fondo */
-    #Inscribirse {
-    color: #df942b;
-    }
-
-    #Inscribirse:hover {
-    text-decoration: underline;
-    }
-
-    body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url(fondo/neom.jpg) no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    }
-
-    .marco::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-conic-gradient(from var(--a), #ff9400 -45deg, #ff9400 45deg, transparent 45deg, transparent 135deg, #df942b 135deg, #df942b 225deg, transparent 225deg, transparent 315deg);
-    border-radius: 5%;
-    animation: animate 5s linear infinite;
-    }
-
-    /* animacion del marco*/
-    @property --a
-    {
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-    }
-
-    @keyframes animate {
-    0% {
-        --a: 0deg
-    }
-    100% {
-        --a: 360deg
-    }}
-
-    .marco span::before {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    background: url(fondo/neom.jpg) no-repeat; background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px);
-    }
-
-    .marco span::after {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    background: url(fondo/neom.jpg) no-repeat;background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px);
-    }
-
-    form .inputbox input[type="submit"], #Borrar_cuenta
-    {
-    background: #ff9400;
-    font-weight: 500; 
-    cursor: pointer;
-    }
-
-    /* marco del formurario de registro y fondo */
-    #Ingresar {
-    color: #f54e4d;
-    }
-
-    #Ingresar:hover {
-    text-decoration: underline;
-    }
-
-    body::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url(fondo/viggo-danielsen.jpg) no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: 0.5s;
-    }
-
-    body.Inscribirse .marco span::before,
-    body.Inscribirse .marco span::after {
-    background: url(fondo/viggo-danielsen.jpg) no-repeat;background-attachment: fixed;
-    background-size: cover ;
-    background-position: center;
-    filter: blur(10px);
-    }
-
-    body.Inscribirse::after {
-    opacity: 1;
-    }
-    
-    body.Inscribirse .marco {
-    height: 440px;
-    }
-
-    body.Inscribirse .marco::before {
-    filter: hue-rotate(310deg);
-    }
-
-    form#formulario_de_Inscribirse .inputbox input[type="submit"]
-    {
-    background: #f4242f;
-    font-weight: 500; 
-    cursor: pointer;
-    color: #fff;
-    }
-
-    /* formurario contenido */
-    form {
-    position: absolute;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    gap: 15px;
-    transition: 0.5s;
-    }
-
-    form#formulario_de_Inscribirse {
-    left: 100%;
-    }
-
-    body.Inscribirse form#formulario_de_inicio_de_sesión {
-    left: -100%;
-    }
-
-    body.Inscribirse form#formulario_de_Inscribirse {
-    left: 0;
-    }
-
-    /* color del texto de la caja de entrada y formurario */
-    form .inputbox input::placeholder {
-    color: rgba(0, 0, 0, 0.685);
-    }
-    
-    /* Texto */
-    form h2 {
-    position: relative;
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.5em;
-    letter-spacing: 0.1em;
-    text-transform:uppercase;
-    margin-bottom: 10px;
-    }
-
-    form .inputbox, #Borrar_cuenta {
-    width: 70%;
-
-    justify-content: space-between;
-    position: relative;
-    }
-
-    form .inputbox a {
-    color: #ffffffb3;
-    text-decoration: none;
-    font-size: 0.85em;
-    }
-    
-    /* colores del input*/
-    form .inputbox input {
-    width: 100%;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.4);
-    padding: 6px 15px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    color: #000000;
-    }
-
-    /* boton*/
-    #Borrar_cuenta{
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.4);
-    padding: 6px 15px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    color: #000000;
-    }
-    
-    
-    </style>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script>
