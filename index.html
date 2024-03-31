@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Ya se programar</title>
-    <link rel="stylesheet" href="swiper-bundle.min.css">  <!-- no tocar -->
-    </head>
+    <link rel="stylesheet" href="swiper-bundle.min.css"> <!-- no tocar -->
+    </head> <!--Version Buil 1.4.31-->
 
 </head>
 <body>  <!-- contenido -->
@@ -106,18 +106,18 @@
                 </div>
                 <div class="swiper-slide" data-modal="gallery" role="group" aria-label="5 / 15" style="width: 391px; margin-right: 20px;">
                     <div class="tile">
-                        <a href="https://github.com/Colega-20"><img src="img/desertsands.jpg">
+                        <a href="https://netscape-a-json.netlify.app/"><img src="img/Natscape a Json.png">
                         <div class="tile-copy">
-                            <h4>Desert Sands</h4></a>
+                            <h4>Cookies Natscape a Json</h4></a>
                             <p>web5</p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide" data-modal="gallery" role="group" aria-label="6 / 15" style="width: 391px; margin-right: 20px;">
                     <div class="tile">
-                        <a href="https://github.com/Colega-20"><img src="img/mando.jpg">
+                        <a href="https://legion-generador-cc.netlify.app/"><img src="img/Generador cc.png">
                         <div class="tile-copy">
-                            <h4>Dune Vs Mando</h4></a>
+                            <h4>Generador de CC</h4></a>
                             <p>web6</p>
                         </div>
                     </div>
@@ -576,6 +576,7 @@ a.button, .button {
 nav.links {
     display: flex;
     flex-wrap: wrap;
+    font-size: 0.8em;
 }
 
 nav.links a:nth-child(2),
@@ -591,7 +592,7 @@ nav.links a:hover {
 }
 
 nav.links a {
-    font-size: 14px;
+    font-size: 1.4em;
     transition: 0.2s ease all;
     display: flex;
     padding: 8px;
@@ -791,7 +792,7 @@ span{
 }
 /* Introducción */
 .intro {
-    max-width: 90%;
+    /* max-width: 90%;*/
     color: #fff; 
     font-size: 1.3em;
 }
@@ -1053,12 +1054,10 @@ rect {
   text-align: center;
   align-items: center;
   padding: 6px;
-  border-radius: 10px;
   cursor: pointer;
   background: #00ACC1;
   transition-duration: 0.2s;
   color: white;
-  fill: white;
   opacity: 0.5;
 }
 
@@ -1113,7 +1112,7 @@ a, a:visited {
 
 <style>
 /* Estilos para pantallas más pequeñas */
-@media screen and (max-width: 1550px) {
+@media screen and (min-width: 1550px) {
 .dribbble .swiper-container-horizontal>.swiper-pagination-bullets {
 bottom: initial;
 top: 8px;
@@ -1123,6 +1122,10 @@ left: 0;
 padding: 0px 7%;
 line-height: 10px;
 text-align: left;
+}
+
+.content{
+margin: 0;
 }}
 
 @media screen and (max-width: 1200px) {
@@ -1200,22 +1203,43 @@ padding: 0 7% 0;
 padding: 42% 3% 88px;
 }
 
+.err-btn{
+font-size: 1em; 
+}
+
+nav.links{
+font-size:1em;
+}
+
+nav.links a:first-child {
+display: none;
+}
+
 .intro p:first-of-type {
 font-size: 1.4em;
 }}
 
 /* Navegación 2 */
 @media screen and (max-width: 800px) {
+
+#menuContainer{
+left: auto;
+}
+
+.contenido_textual, p{
+font-size: 1.15em;
+}
+
 .header {
 padding: 14px 0;
 }
 
 .content.columns p{
-font-size: 1.34em;
+font-size: 1.12em;
 }
 
 .intro p:first-of-type {
-font-size: 1.2em;
+font-size: 1em;
 }
 
 .intro {
@@ -1224,16 +1248,16 @@ padding: 60% 5% 90px;
 
 .header .inner {
 padding: 0px 7%;
-}
-
-nav.links a:first-child {
-display: none;
 }}
 
 @media screen and (max-width: 600px) {
 .dropdown-content {
 top: 98px;
 left: 10px;
+}
+
+nav.links a {
+margin: 0;
 }
 
 .intro {
@@ -1250,11 +1274,6 @@ padding: 14px 0;
 padding: 0px 7%;
 }
 
-nav.links a {
-font-size: 13px;
-margin: 0;
-}
-
 nav.links {
 display: none;
 }
@@ -1264,8 +1283,8 @@ padding: 1px 0% 30px;
 }}
 
 @media screen and (max-width: 470px) {
-.parrafos{
-font-size:0.85em;
+.contenido_textual, p{
+font-size:1.14em;
 }
 
 nav.links {
