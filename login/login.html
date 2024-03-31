@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--Version Buil 2024.4.31-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +22,11 @@
   <h2>Ingresar<div id="player"></div></h2>
 
   <div class="inputbox">
-  <input type="email" id="emailInput" name="correo" required placeholder="Correo">
+  <input type="email" id="emailInput" name="correo" maxlength="16" required placeholder="Correo">
   </div>
 
   <div class="inputbox">
-  <input type="password" id="passwordInput" placeholder="Contraseña" required>
+  <input type="password" id="passwordInput" maxlength="16" placeholder="Contraseña" required>
   <div class="mostrar_clave_ingresar"></div>
   </div>
 
@@ -48,20 +49,20 @@
   <h2>Registro</h2>
 
   <div class="inputbox">
-  <input type="text" id="userInput" required placeholder="Nombre de usuario">
+  <input type="text" id="userInput" maxlength="12" required placeholder="Nombre de usuario">
   </div>
 
   <div class="inputbox">
-  <input type="email" id="emailInputRegistro" name="nuevo-correo" required placeholder="Correo">
+  <input type="email" id="emailInputRegistro" maxlength="16" name="nuevo-correo" required placeholder="Correo">
   </div>
 
   <div class="inputbox">
-  <input type="password" id="crear_contraseña" required placeholder="Crear contraseña">
+  <input type="password" id="crear_contraseña" maxlength="16" required placeholder="Crear contraseña">
   <div class="mostrar_clave_registrar"></div>
   </div>
 
   <div class="inputbox">
-  <input type="password" id="confirmar_contraseña" placeholder="Confirmar contraseña">
+  <input type="password" id="confirmar_contraseña" maxlength="16" placeholder="Confirmar contraseña">
   </div>
 
   <div id="error_confirmar_contraseña"></div>
